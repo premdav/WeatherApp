@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <!-- linking css sheets -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.9/css/weather-icons.min.css" rel="stylesheet">
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
     <!-- end css sheets -->
@@ -16,6 +17,28 @@
     <title>Weather</title>
 </head>
 <body>
-
+<div class="row">
+    <div class="col-12 app-title">
+        <h1 class="text-center">Local Weather</h1>
+    </div>
+</div>
+<div class="row">
+    <div class="col-6 offset-3 text-center data-box">
+        <div class="row">
+            <div class="city col-12">
+                <h3 class="text-center">Current location</h3>
+            </div>
+            <div class="temp col-12">
+                <h2 class="text-center">88 &#8457;</h2>
+            </div>
+            <div class="conditions col-12">
+                <h3 class="text-center">Thunderstorms</h3>
+            </div>
+            <div class="weather-icon col-12 text-center">
+                <i class="wi wi-thunderstorm"></i>
+            </div>
+        </div>
+    </div>
+</div>
 </body>
 </html>
