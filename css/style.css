@@ -15,10 +15,15 @@ body {
     padding: 50px 0;
 }
 
-.weather-icon {
-    font-size: 75px;
+.temp {
+    font-size: 50px;
+    background-color: #e2e6ea;
 }
 
 .weather {
     text-transform: capitalize;
+}
+
+.weather-icon {
+    font-size: 75px;
 }

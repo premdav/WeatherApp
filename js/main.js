@@ -18,8 +18,10 @@ $(document).ready(function () {
             console.log(urlApi);
             $.getJSON(urlApi, function(json) {
                 console.log(json);
+                myTemp = json.main.temp;
                 $(".cityName").html(json.name);
-                $(".temp").html(json.main.temp + "&deg;C");
+                $(".temp").html(myTemp + " &deg;C");
+                $(".temp").addClass('celsius');
                 $(".weather").html(json.weather[0].description);
 
                 let myWeather = json.weather[0].description;
@@ -32,13 +34,13 @@ $(document).ready(function () {
                 else if(myWeather === "scattered clouds") {
                     $(".my-icon").addClass("wi-cloud");
                 }
-                else if(myWeather === "shower rain") {
+                else if(myWeather === "shower rain" || myWeather === "light intensity drizzle") {
                     $(".my-icon").addClass("wi-showers");
                 }
                 else if(myWeather === "broken clouds") {
                     $(".my-icon").addClass("wi-cloudy");
                 }
-                else if(myWeather === "rain") {
+                else if(myWeather === "rain" || myWeather === "light rain") {
                     $(".my-icon").addClass("wi-rain");
                 }
                 else if(myWeather === "thunderstorm") {
@@ -50,7 +52,27 @@ $(document).ready(function () {
                 else if(myWeather === "mist") {
                     $(".my-icon").addClass("wi-fog");
                 }
-
             });
         }
+
+    // button to change between C and F
+    $(".temp").click(function () {
+        $(".temp").toggleClass('celsius');
+        $(".temp").toggleClass('fahrenheit');
+
+        if($(this).hasClass('celsius')) {
+            $(".temp").html(setFahrenheit());
+            return;
+        }
+        $(".temp").html(setCelsius());
+    });
+    function setCelsius () {
+        return myTemp + " &deg;C";
+    }
+
+    function setFahrenheit() {
+        let far = Math.round(myTemp * 1.8 + 32);
+        return far + " &deg;F";
+    }
+
 });
